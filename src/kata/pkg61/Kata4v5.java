@@ -18,5 +18,30 @@ public class Kata4v5 {
         });
         HistogramDisplay histoDisplay = new HistogramDisplay(domains);
         histoDisplay.execute();
+        Histogram<Float> histoPesos = builder.build(new Attribute<Person,Float>(){
+            @Override
+            public Float get (Person person){
+                return person.getPeso();
+            }
+        });
+        HistogramDisplay histoDisplay1 = new HistogramDisplay(histoPesos);
+        histoDisplay1.execute();
+        Histogram<String> histoGenero = builder.build(new Attribute<Person,String>(){
+            @Override
+            public String get (Person person){
+                return person.getGenero();
+            }
+        });
+        HistogramDisplay histoDisplay2 = new HistogramDisplay(histoGenero);
+        histoDisplay2.execute();
+        
+        Histogram<Character> histoCaracteres = builder.build(new Attribute<Person,Character>(){
+            @Override
+            public Character get (Person person){
+                return person.getMail().charAt(0);
+            }
+        });
+        HistogramDisplay histoDisplay3 = new HistogramDisplay(histoCaracteres);
+        histoDisplay3.execute();
     }
 }
